@@ -6,10 +6,12 @@ public class RacingGame {
     private final Cars cars;
     private final int time;
     private int currentTime;
+    private MovingStrategy movingStrategy;
 
-    public RacingGame(String carName, int time) {
+    public RacingGame(String carName, int time, MovingStrategy movingStrategy) {
         this.cars = new Cars(carName);
         this.time = time;
+        this.movingStrategy = movingStrategy;
     }
 
     public Cars getCars() {
@@ -25,7 +27,7 @@ public class RacingGame {
     }
 
     public void race() {
-        cars.moveAll(new RandomMovingStrategy());
+        cars.moveAll(movingStrategy);
         currentTime++;
     }
 }

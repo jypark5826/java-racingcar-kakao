@@ -1,12 +1,13 @@
 package racingcar;
 
 import racingcar.domain.RacingGame;
+import racingcar.domain.RandomMovingStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Main {
     public static void main(String[] args) {
-        RacingGame racingGame = new RacingGame(InputView.getNames(), InputView.getTime());
+        RacingGame racingGame = new RacingGame(InputView.getNames(), InputView.getTime(), new RandomMovingStrategy());
         OutputView.printResult();
 
         while (!racingGame.isEnd()) {
